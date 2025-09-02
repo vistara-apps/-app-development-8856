@@ -1,11 +1,11 @@
 // Pinata IPFS integration for FASTA file storage
 
-const PINATA_API_KEY = import.meta.env.VITE_PINATA_API_KEY;
-const PINATA_SECRET_KEY = import.meta.env.VITE_PINATA_SECRET_KEY;
-const PINATA_JWT = import.meta.env.VITE_PINATA_JWT;
+const PINATA_API_KEY = import.meta.env.VITE_PINATA_API_KEY || 'dummy_pinata_api_key';
+const PINATA_SECRET_KEY = import.meta.env.VITE_PINATA_SECRET_KEY || 'dummy_pinata_secret_key';
+const PINATA_JWT = import.meta.env.VITE_PINATA_JWT || 'dummy_pinata_jwt';
 
-if (!PINATA_API_KEY || !PINATA_SECRET_KEY || !PINATA_JWT) {
-  console.error('Pinata credentials are missing. Make sure to set VITE_PINATA_API_KEY, VITE_PINATA_SECRET_KEY, and VITE_PINATA_JWT in your environment variables.');
+if (!import.meta.env.VITE_PINATA_API_KEY || !import.meta.env.VITE_PINATA_SECRET_KEY || !import.meta.env.VITE_PINATA_JWT) {
+  console.warn('Pinata credentials are missing. Make sure to set VITE_PINATA_API_KEY, VITE_PINATA_SECRET_KEY, and VITE_PINATA_JWT in your environment variables. Using fallback values for build.');
 }
 
 /**
