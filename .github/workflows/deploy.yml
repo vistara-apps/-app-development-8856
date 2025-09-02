@@ -26,6 +26,7 @@ jobs:
       run: npm run build
       env:
         NODE_OPTIONS: --max-old-space-size=4096
+        # Use fallback values for environment variables if not provided
         VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://example.supabase.co' }}
         VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'dummy_key_for_build' }}
         VITE_PINATA_API_KEY: ${{ secrets.VITE_PINATA_API_KEY || 'dummy_pinata_api_key' }}
